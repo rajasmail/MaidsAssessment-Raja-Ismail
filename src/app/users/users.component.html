@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="title">
+        <label> Maids Assessment</label>
+    </div>
+    <input type="number" placeholder="Search by ID" [(ngModel)]="searchUserId" (input)="searchUser()" />
+</div>
+<div class="loading-container" *ngIf="showSpinner">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div class="user-list">
+    <div *ngFor="let user of filteredUsers" class="user-card" (click)="navigateToUserDetails(user.id)" [appCardBackground]="'rgba(70, 78, 185, 0.1)'">
+        <img [src]="user.avatar" alt="{{ user.first_name }} {{ user.last_name }}" />
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+        <label> ID  :  #{{ user.id }}</label>
+    </div>
+</div>
+
+<div class="pagination" *ngIf="!showSpinner">
+    <button (click)="loadUsers(currentPage - 1)" [disabled]="currentPage === 1">
+  Previous
+</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="loadUsers(currentPage + 1)">Next</button>
+</div>
+<br>

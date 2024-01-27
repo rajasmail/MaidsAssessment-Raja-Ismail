@@ -1,0 +1,46 @@
+<!-- <div class="header">
+    <div class="title">
+        <label> Maids Assessment</label>
+    </div>
+</div> -->
+
+<!-- Button to navigate back, invoking the 'navigateBack()' function on click -->
+<!-- <button class="back-button" (click)="navigateBack()">
+<mat-icon>arrow_back</mat-icon>
+Back
+</button> -->
+<!-- <div class="user-details-container" *ngIf="user">
+  <h2>User Details</h2>
+  <img [src]="user.avatar" alt="{{ user.first_name }} {{ user.last_name }}" />
+  <p>{{ user.first_name }} {{ user.last_name }}</p>
+  <p>ID: {{ user.id }}</p>
+
+
+</div> -->
+<div class="loading-container" *ngIf="showSpinner">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<br>
+<div class="container" *ngIf="!showSpinner">
+    <div class="profile-box">
+        <img src="../../assets/menu.png" class="menu-icon">
+        <img src="../../assets/setting.png" class="setting-icon">
+        <img [src]="user.avatar" class="profile-pic">
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <p>{{ user.email }}</p>
+        <div class="social-media">
+            <img src="../../assets/instagram.png">
+            <img src="../../assets/telegram.png">
+
+            <img src="../../assets/dribble.png">
+
+        </div>
+        <button type="button" (click)="navigateBack()">
+        Back To Users
+      </button>
+        <div class="profile-botton">
+            <p>Learn More About My Profile</p>
+            <img src="../../assets/arrow.png">
+        </div>
+    </div>
+</div>
